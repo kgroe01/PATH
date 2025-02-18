@@ -2,7 +2,6 @@
 title: "Login"
 author: "Katelyn Groe"
 date: "2025-01-21"
-output_dir: "docs"
 output:
   html_document:
     css: style.css
