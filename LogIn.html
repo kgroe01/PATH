@@ -111,9 +111,9 @@ Login
 // Define users with their emails, passwords, and assigned pages
 const users = {
   "kgroe@iastate.edu": { password: "kgroe", page: "Modules.html" },
-  "user2@example.com": { password: "password2", page: "user2.html" },
+  "rhuffman@iastate.edu": { password: "rhuffman", page: "rhuffman.html" },
   "user3@example.com": { password: "password3", page: "user3.html" },
-  // Add up to 25 users here
+  // Add more users as needed
 };
 
 // Function to check email & password and redirect
@@ -122,14 +122,21 @@ function checkLogin() {
   var password = document.getElementById("password").value;
 
   if (users.hasOwnProperty(email) && users[email].password === password) {
-    var expirationTime = Date.now() + 5 * 60 * 1000; // Set expiration time (30 min)
-    localStorage.setItem("access", email);
-    localStorage.setItem("expiration", expirationTime);
+    sessionStorage.setItem("access", email); // Store login session
     window.location.href = users[email].page; // Redirect to user page
   } else {
     alert("Incorrect email or password. Try again.");
   }
 }
+
+// Check session when loading a page
+window.onload = function() {
+  var email = sessionStorage.getItem("access");
+
+  if (!email) {
+    window.location.href = "Login.html"; // Redirect to login if no session
+  }
+};
 </script>
 </div>
 
