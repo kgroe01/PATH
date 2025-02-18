@@ -1,0 +1,47 @@
+---
+title: "Title Page"
+author: "Katelyn Groe"
+date: "2025-01-21"
+output:
+  html_document:
+    css: style.css
+    theme: null
+    toc: false
+    includes:
+      in_header: Friv.html
+
+---
+
+<nav>
+  <a href="docs/index.html">Home</a>
+  <a href="docs/contact.html">Contact</a>
+</nav>
+
+
+<script>
+// Get stored email and expiration time
+var email = localStorage.getItem("access");
+var expiration = localStorage.getItem("expiration");
+
+// Check if the session is expired
+if (!email || !expiration || Date.now() > expiration) {
+  localStorage.removeItem("access");
+  localStorage.removeItem("expiration");
+  window.location.href = "Login.html"; // Redirect to login
+}
+</script>
+
+
+<p style="margin-bottom: 20px;">
+
+## Units -  
+- [Unit 1 - Crop and Soil Management](Module1.html)
+- [Unit 2 - GPS guidence](Module2.html)
+- [Unit 3 - Remote Sensing](Module3.html)
+- [Unit 4 - Automation](Module1.html) 
+
+
+
+
+
+
