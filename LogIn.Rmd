@@ -53,20 +53,24 @@ function checkLogin() {
   }
 }
 
-// Check session expiration and redirect if needed
 window.onload = function() {
   var email = localStorage.getItem("access");
   var expiration = localStorage.getItem("expiration");
 
-  // Get the current page name (e.g., "Modules.html", "Login.html")
-  var currentPage = window.location.pathname.split("/").pop();
+  // Get the current page name (handle subdirectories like "docs/")
+  var currentPage = window.location.pathname.split("/").pop().toLowerCase();
+
+  // Adjust for GitHub Pages structure (it might serve from "docs/")
+  if (currentPage === "" || currentPage === "index.html") {
+    currentPage = "Login.html"; // Default page
+  }
 
   // If session expired, clear storage and redirect to login (but not on Login.html)
   if (!email || !expiration || Date.now() > expiration) {
     localStorage.removeItem("access");
     localStorage.removeItem("expiration");
-    
-    if (currentPage !== "Login.html") {
+
+    if (currentPage !== "login.html") {
       window.location.href = "Login.html"; // Redirect only on protected pages
     }
   }
