@@ -8,7 +8,8 @@ output:
     css: style.css
     theme: null
     toc: false
-    includes:
+    includes: 
+        in_header: Friv.html
 ---
 
 <nav>
@@ -44,22 +45,35 @@ function checkLogin() {
   var password = document.getElementById("password").value;
 
   if (users.hasOwnProperty(email) && users[email].password === password) {
-    sessionStorage.setItem("access", email); // Store login session
+    var expirationTime = Date.now() + 12 * 60 * 60 * 1000; // 12 hours
+    localStorage.setItem("access", email);
+    localStorage.setItem("expiration", expirationTime);
     window.location.href = users[email].page; // Redirect to user page
   } else {
     alert("Incorrect email or password. Try again.");
   }
 }
 
-// Check session when loading a page
+// Check session expiration and redirect if needed
 window.onload = function() {
-  var email = sessionStorage.getItem("access");
+  var email = localStorage.getItem("access");
+  var expiration = localStorage.getItem("expiration");
 
-  if (!email) {
-    window.location.href = "Login.html"; // Redirect to login if no session
+  // Get the current page name (e.g., "Modules.html", "Login.html")
+  var currentPage = window.location.pathname.split("/").pop();
+
+  // If session expired, clear storage and redirect to login (but not on Login.html)
+  if (!email || !expiration || Date.now() > expiration) {
+    localStorage.removeItem("access");
+    localStorage.removeItem("expiration");
+    
+    if (currentPage !== "Login.html") {
+      window.location.href = "Login.html"; // Redirect only on protected pages
+    }
   }
 };
 </script>
+
 
 
 
