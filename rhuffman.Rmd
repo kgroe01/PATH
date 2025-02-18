@@ -34,16 +34,10 @@ if (!email || !expiration || Date.now() > expiration) {
 
 <p style="margin-bottom: 20px;">
 
-This is Kate's Page!! Welcome Kate
+This is Ryan's Page
 
 ## Units -  
 - [Unit 1 - Crop and Soil Management](Module1.html)
 - [Unit 2 - GPS guidence](Module2.html)
 - [Unit 3 - Remote Sensing](Module3.html)
 - [Unit 4 - Automation](Module1.html) 
-
-
-
-
-
-

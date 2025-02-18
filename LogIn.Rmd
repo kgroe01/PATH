@@ -44,7 +44,7 @@ function checkLogin() {
   var password = document.getElementById("password").value;
 
   if (users.hasOwnProperty(email) && users[email].password === password) {
-    var expirationTime = Date.now() + 5 * 60 * 1000; // Set expiration time (30 min)
+    var expirationTime = Date.now() + 5 * 60 * 1000; // Set expiration time (5 min)
     localStorage.setItem("access", email);
     localStorage.setItem("expiration", expirationTime);
     window.location.href = users[email].page; // Redirect to user page
