@@ -29,54 +29,45 @@ output:
 
 <button onclick="checkLogin()">Login</button>
 
+
 <script>
-// Define users with their emails, passwords, and assigned pages
+// Pre-hashed email and password storage
 const users = {
-  "kgroe@iastate.edu": { password: "kgroe", page: "Modules.html" },
-  "rhuffman@iastate.edu": { password: "rhuffman", page: "rhuffman.html" },
-  "user3@example.com": { password: "password3", page: "user3.html" },
-  // Add more users as needed
+  "93e6ddee74d2267f02f4c2a95fcf79c8cb660b676843af44f2dd30c19e85f6fd": { // Hash of "kgroe@iastate.edu"
+    hash: "e99a18c428cb38d5f260853678922e03", // Hash of "kgroe"
+    page: "Modules.html"
+  },
+  "a78a7e8b5eec88c2fcb52cd08792d67fa02eb15e2914d7e5aa48a758e92f11c1": { // Hash of "rhuffman@iastate.edu"
+    hash: "2b75b012d6a9a3a763194b2f9e04f9d2", // Hash of "rhuffman"
+    page: "rhuffman.html"
+  }
 };
 
-// Function to check email & password and redirect
-function checkLogin() {
+// Function to hash input values (SHA-256)
+async function hashValue(value) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(value);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+// Function to check login
+async function checkLogin() {
   var email = document.getElementById("email").value.trim().toLowerCase();
   var password = document.getElementById("password").value;
 
-  if (users.hasOwnProperty(email) && users[email].password === password) {
-    var expirationTime = Date.now() + 12 * 60 * 60 * 1000; // 12 hours
-    localStorage.setItem("access", email);
-    localStorage.setItem("expiration", expirationTime);
-    window.location.href = users[email].page; // Redirect to user page
+  // Hash email and password before checking
+  var hashedEmail = await hashValue(email);
+  var hashedPassword = await hashValue(password);
+
+  if (users.hasOwnProperty(hashedEmail) && users[hashedEmail].hash === hashedPassword) {
+    sessionStorage.setItem("access", hashedEmail); // Store hashed email in session
+    window.location.href = users[hashedEmail].page; // Redirect user
   } else {
-    alert("Incorrect email or password. Try again.");
+    alert("Incorrect email or password.");
   }
 }
-
-window.onload = function() {
-  var email = localStorage.getItem("access");
-  var expiration = localStorage.getItem("expiration");
-
-  // Get the current page name (handle subdirectories like "docs/")
-  var currentPage = window.location.pathname.split("/").pop().toLowerCase();
-
-  // Adjust for GitHub Pages structure (it might serve from "docs/")
-  if (currentPage === "" || currentPage === "index.html") {
-    currentPage = "Login.html"; // Default page
-  }
-
-  // If session expired, clear storage and redirect to login (but not on Login.html)
-  if (!email || !expiration || Date.now() > expiration) {
-    localStorage.removeItem("access");
-    localStorage.removeItem("expiration");
-
-    if (currentPage !== "login.html") {
-      window.location.href = "Login.html"; // Redirect only on protected pages
-    }
-  }
-};
 </script>
-
 
 
 
