@@ -43,6 +43,39 @@ This is Kate's Page!! Welcome Kate
 - [Unit 4 - Automation](Module1.html) 
 
 
+<button id="logoutButton" onclick="logout()">Logout</button>
+
+<style>
+/* Style the logout button */
+#logoutButton {
+    display: block;
+    width: 150px;
+    padding: 10px;
+    margin: 20px auto; /* Center the button */
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+#logoutButton:hover {
+    background-color: darkred;
+}
+</style>
+
+
+<script>
+function logout() {
+    localStorage.removeItem("access"); // Remove login session
+    localStorage.removeItem("expiration"); // Remove expiration time
+    window.location.href = "Login.html"; // Redirect to login page
+}
+</script>
+
+
+
 
 
 
