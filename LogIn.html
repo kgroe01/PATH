@@ -14,7 +14,7 @@
 
 <meta name="date" content="2025-01-21" />
 
-<title>Login</title>
+<title>Login Page</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -87,7 +87,7 @@ if (window.hljs) {
 
 
 
-<h1 class="title toc-ignore">Login</h1>
+<h1 class="title toc-ignore">Login Page</h1>
 <h4 class="author">Katelyn Groe</h4>
 <h4 class="date">2025-01-21</h4>
 
@@ -109,41 +109,26 @@ Sign In
 Login
 </button>
 <script>
-// Simple email and password storage
+// Define users with their emails, passwords, and assigned pages
 const users = {
-  "kgroe@iastate.edu": {
-    password: "kgroe", 
-    page: "Modules.html"
-  },
-  "rhuffman@iastate.edu": {
-    password: "rhuffman", 
-    page: "rhuffman.html"
-  }
+  "kgroe@iastate.edu": { password: "kgroe", page: "rhuffman.html" },
+  "user2@example.com": { password: "password2", page: "user2.html" },
+  "user3@example.com": { password: "password3", page: "user3.html" },
+  // Add up to 25 users here
 };
 
-// Function to check login
+// Function to check email & password and redirect to assigned page
 function checkLogin() {
   var email = document.getElementById("email").value.trim().toLowerCase();
-  var password = document.getElementById("password").value.trim();
+  var password = document.getElementById("password").value;
 
-  if (users[email] && users[email].password === password) {
-    sessionStorage.setItem("access", email); // Store email in session
-    window.location.href = users[email].page; // Redirect user
+  if (users.hasOwnProperty(email) && users[email].password === password) {
+    localStorage.setItem("access", email); // Store email as session token
+    window.location.href = users[email].page; // Redirect to user page
   } else {
-    alert("Incorrect email or password.");
+    alert("Incorrect email or password. Try again.");
   }
 }
-
-// Function to check session expiration and redirect if needed
-window.onload = function() {
-  var email = sessionStorage.getItem("access");
-  var currentPage = window.location.pathname.split("/").pop().toLowerCase();
-
-  // Prevent redirect loop by checking if already on login page
-  if (!email && currentPage !== "Login.html") {
-    window.location.href = "Login.html";
-  }
-};
 </script>
 </div>
 
