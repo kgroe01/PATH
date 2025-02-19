@@ -16,8 +16,7 @@ output:
   <a href="contact.html">Contact</a>
 </nav>
 
-# Log in Page blah
-
+# Log in Page
 
 <h2>Sign In</h2>
 
@@ -29,16 +28,15 @@ output:
 
 <button onclick="checkLogin()">Login</button>
 
-
 <script>
 // Pre-hashed email and password storage
 const users = {
-  "93e6ddee74d2267f02f4c2a95fcf79c8cb660b676843af44f2dd30c19e85f6fd": { // Hash of "kgroe@iastate.edu"
-    hash: "e99a18c428cb38d5f260853678922e03", // Hash of "kgroe"
+  "65a96535d05248fb0cbd651898c0fc746e534be4e6dbf503340af69168040a72": { // kgroe@iastate.edu
+    hash: "f3c56d97beb6d020ec80c78abd66003aee12a2ec3aa8a5b4b99af791c0547544", // kgroe
     page: "Modules.html"
   },
-  "a78a7e8b5eec88c2fcb52cd08792d67fa02eb15e2914d7e5aa48a758e92f11c1": { // Hash of "rhuffman@iastate.edu"
-    hash: "2b75b012d6a9a3a763194b2f9e04f9d2", // Hash of "rhuffman"
+  "a78a7e8b5eec88c2fcb52cd08792d67fa02eb15e2914d7e5aa48a758e92f11c1": { // rhuffman@iastate.edu
+    hash: "2b75b012d6a9a3a763194b2f9e04f9d2", // rhuffman
     page: "rhuffman.html"
   }
 };
@@ -54,21 +52,36 @@ async function hashValue(value) {
 // Function to check login
 async function checkLogin() {
   var email = document.getElementById("email").value.trim().toLowerCase();
-  var password = document.getElementById("password").value;
+  var password = document.getElementById("password").value.trim(); // Trim to remove extra spaces
 
   // Hash email and password before checking
   var hashedEmail = await hashValue(email);
   var hashedPassword = await hashValue(password);
 
+  // Debugging: Log the hashes to the console
+  console.log("User Input Hashes:");
+  console.log("Hashed Email:", hashedEmail);
+  console.log("Hashed Password:", hashedPassword);
+
   if (users.hasOwnProperty(hashedEmail) && users[hashedEmail].hash === hashedPassword) {
     sessionStorage.setItem("access", hashedEmail); // Store hashed email in session
     window.location.href = users[hashedEmail].page; // Redirect user
   } else {
+    console.log("Stored Hash:", users[hashedEmail]?.hash); // Log stored hash for debugging
     alert("Incorrect email or password.");
   }
 }
+
+// Function to check session expiration and redirect if needed
+window.onload = async function() {
+  var email = sessionStorage.getItem("access");
+
+  // Get the current page name (e.g., "Modules.html", "Login.html")
+  var currentPage = window.location.pathname.split("/").pop();
+
+  // Prevent redirect loop by checking if already on Login.html
+  if (!email && currentPage !== "Login.html") {
+    window.location.href = "Login.html";
+  }
+};
 </script>
-
-
-
-
