@@ -53,7 +53,7 @@ output:
         // Define where each user should go
         const userPages = {
             "kgroe@iastate.edu": "Modules.html",
-            "ryhuffman@iastate.edu": "rhuffman.html",
+            "aalthaus@iastate.edu": "rhuffman.html",
             "admin@example.com": "admin.html",
             "default": "default.html" // Redirect for unknown users
         };
