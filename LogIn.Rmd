@@ -29,59 +29,39 @@ output:
 <button onclick="checkLogin()">Login</button>
 
 <script>
-// Pre-hashed email and password storage
+// Simple email and password storage
 const users = {
-  "65a96535d05248fb0cbd651898c0fc746e534be4e6dbf503340af69168040a72": { // kgroe@iastate.edu
-    hash: "f3c56d97beb6d020ec80c78abd66003aee12a2ec3aa8a5b4b99af791c0547544", // kgroe
+  "kgroe@iastate.edu": {
+    password: "kgroe", 
     page: "Modules.html"
   },
-  "a78a7e8b5eec88c2fcb52cd08792d67fa02eb15e2914d7e5aa48a758e92f11c1": { // rhuffman@iastate.edu
-    hash: "2b75b012d6a9a3a763194b2f9e04f9d2", // rhuffman
+  "rhuffman@iastate.edu": {
+    password: "rhuffman", 
     page: "rhuffman.html"
   }
 };
 
-// Function to hash input values (SHA-256)
-async function hashValue(value) {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(value);
-  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-  return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
 // Function to check login
-async function checkLogin() {
+function checkLogin() {
   var email = document.getElementById("email").value.trim().toLowerCase();
-  var password = document.getElementById("password").value.trim(); // Trim to remove extra spaces
+  var password = document.getElementById("password").value.trim();
 
-  // Hash email and password before checking
-  var hashedEmail = await hashValue(email);
-  var hashedPassword = await hashValue(password);
-
-  // Debugging: Log the hashes to the console
-  console.log("User Input Hashes:");
-  console.log("Hashed Email:", hashedEmail);
-  console.log("Hashed Password:", hashedPassword);
-
-  if (users.hasOwnProperty(hashedEmail) && users[hashedEmail].hash === hashedPassword) {
-    sessionStorage.setItem("access", hashedEmail); // Store hashed email in session
-    window.location.href = users[hashedEmail].page; // Redirect user
+  if (users[email] && users[email].password === password) {
+    sessionStorage.setItem("access", email); // Store email in session
+    window.location.href = users[email].page; // Redirect user
   } else {
-    console.log("Stored Hash:", users[hashedEmail]?.hash); // Log stored hash for debugging
     alert("Incorrect email or password.");
   }
 }
 
 // Function to check session expiration and redirect if needed
-window.onload = async function() {
+window.onload = function() {
   var email = sessionStorage.getItem("access");
+  var currentPage = window.location.pathname.split("/").pop().toLowerCase();
 
-  // Get the current page name (e.g., "Modules.html", "Login.html")
-  var currentPage = window.location.pathname.split("/").pop();
-
-  // Prevent redirect loop by checking if already on Login.html
-  if (!email && currentPage !== "Login.html") {
-    window.location.href = "Login.html";
+  // Prevent redirect loop by checking if already on login page
+  if (!email && currentPage !== "login.html") {
+    window.location.href = "login.html";
   }
 };
 </script>
