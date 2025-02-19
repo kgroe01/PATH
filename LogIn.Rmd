@@ -45,3 +45,27 @@ output:
 <button onclick="netlifyIdentity.open()">Log In</button>
 <button onclick="netlifyIdentity.logout()">Log Out</button>
 <p id="user-info"></p>
+
+<script>
+    netlifyIdentity.on("login", user => {
+        const email = user.email;
+
+        // Define where each user should go
+        const userPages = {
+            "kgroe@iastate.edu": "Modules.html",
+            "user2@example.com": "user2.html",
+            "admin@example.com": "admin.html",
+            "default": "default.html" // Redirect for unknown users
+        };
+
+        // Find the correct page for the user
+        const redirectPage = userPages[email] || userPages["default"];
+
+        // Redirect user
+        window.location.href = redirectPage;
+    });
+
+    netlifyIdentity.on("logout", () => {
+        window.location.href = "index.html"; // Send them back to home on logout
+    });
+</script>
