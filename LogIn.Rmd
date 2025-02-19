@@ -60,8 +60,8 @@ window.onload = function() {
   var currentPage = window.location.pathname.split("/").pop().toLowerCase();
 
   // Prevent redirect loop by checking if already on login page
-  if (!email && currentPage !== "login.html") {
-    window.location.href = "login.html";
+  if (!email && currentPage !== "Login.html") {
+    window.location.href = "Login.html";
   }
 };
 </script>
