@@ -106,6 +106,18 @@ if (window.hljs) {
 <li><a href="Module3.html">Unit 3 - Remote Sensing</a></li>
 <li><a href="Module1.html">Unit 4 - Automation</a></li>
 </ul>
+<button onclick="logout()">
+Log Out
+</button>
+<script>
+    function logout() {
+        netlifyIdentity.logout();
+    }
+
+    netlifyIdentity.on("logout", () => {
+        window.location.href = "index.html"; // Redirect to home after logout
+    });
+</script>
 </div>
 
 

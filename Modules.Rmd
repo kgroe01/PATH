@@ -30,6 +30,18 @@ This is Kate's Page!! Welcome Kate
 - [Unit 4 - Automation](Module1.html) 
 
 
+<button onclick="logout()">Log Out</button>
+
+<script>
+    function logout() {
+        netlifyIdentity.logout();
+    }
+
+    netlifyIdentity.on("logout", () => {
+        window.location.href = "index.html"; // Redirect to home after logout
+    });
+</script>
+
 
 
 
