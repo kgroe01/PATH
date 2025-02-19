@@ -12,6 +12,8 @@ output:
 
 ---
 
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 <nav>
   <a href="index.html">Home</a>
   <a href="contact.html">Contact</a>
