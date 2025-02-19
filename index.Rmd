@@ -12,8 +12,6 @@ output:
 
 ---
 
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
 
 <nav>
   <a href="index.html">Home</a>
@@ -35,10 +33,6 @@ This is a static website that I created.
 
 
 
-
-<button onclick="netlifyIdentity.open()">Log In</button>
-<button onclick="netlifyIdentity.logout()">Log Out</button>
-<p id="user-info"></p>
 
 
 
