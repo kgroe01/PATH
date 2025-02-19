@@ -12,32 +12,37 @@ output:
 
 ---
 
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 <nav>
   <a href="docs/index.html">Home</a>
   <a href="docs/contact.html">Contact</a>
 </nav>
 
 
-<script>
-// Get stored email and expiration time
-var email = localStorage.getItem("access");
-var expiration = localStorage.getItem("expiration");
-
-// Check if the session is expired
-if (!email || !expiration || Date.now() > expiration) {
-  localStorage.removeItem("access");
-  localStorage.removeItem("expiration");
-  window.location.href = "Login.html"; // Redirect to login
-}
-</script>
 
 
 <p style="margin-bottom: 20px;">
 
-This is Ryan's Page
+This is Ashley's Page
 
 ## Units -  
 - [Unit 1 - Crop and Soil Management](Module1.html)
 - [Unit 2 - GPS guidence](Module2.html)
 - [Unit 3 - Remote Sensing](Module3.html)
 - [Unit 4 - Automation](Module1.html) 
+
+
+
+<button onclick="logout()">Log Out</button>
+
+<script>
+    function logout() {
+        netlifyIdentity.logout();
+    }
+
+    netlifyIdentity.on("logout", () => {
+        window.location.href = "index.html"; // Redirect to home after logout
+    });
+</script>
+
