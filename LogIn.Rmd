@@ -11,6 +11,9 @@ output:
         in_header: Friv.html
 ---
 
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+
 <nav>
   <a href="index.html">Home</a>
   <a href="contact.html">Contact</a>
@@ -21,3 +24,24 @@ output:
 [Unit 1 - Crop and Soil Management](Modules.html)
 
 
+
+<script>
+    netlifyIdentity.on("init", user => {
+        if (user) {
+            document.getElementById("user-info").innerText = "Hello, " + user.email;
+        }
+    });
+
+    netlifyIdentity.on("login", user => {
+        document.getElementById("user-info").innerText = "Hello, " + user.email;
+    });
+
+    netlifyIdentity.on("logout", () => {
+        document.getElementById("user-info").innerText = "";
+    });
+</script>
+
+
+<button onclick="netlifyIdentity.open()">Log In</button>
+<button onclick="netlifyIdentity.logout()">Log Out</button>
+<p id="user-info"></p>
