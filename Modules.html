@@ -96,18 +96,6 @@ if (window.hljs) {
 <nav>
 <a href="index.html">Home</a> <a href="contact.html">Contact</a>
 </nav>
-<script>
-// Get stored email and expiration time
-var email = localStorage.getItem("access");
-var expiration = localStorage.getItem("expiration");
-
-// Check if the session is expired
-if (!email || !expiration || Date.now() > expiration) {
-  localStorage.removeItem("access");
-  localStorage.removeItem("expiration");
-  window.location.href = "Login.html"; // Redirect to login
-}
-</script>
 <p style="margin-bottom: 20px;">
 <p>This is Kate’s Page!! Welcome Kate</p>
 <div id="units--" class="section level2">

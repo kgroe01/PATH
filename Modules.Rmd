@@ -18,18 +18,7 @@ output:
 </nav>
 
 
-<script>
-// Get stored email and expiration time
-var email = localStorage.getItem("access");
-var expiration = localStorage.getItem("expiration");
 
-// Check if the session is expired
-if (!email || !expiration || Date.now() > expiration) {
-  localStorage.removeItem("access");
-  localStorage.removeItem("expiration");
-  window.location.href = "Login.html"; // Redirect to login
-}
-</script>
 
 
 <p style="margin-bottom: 20px;">
