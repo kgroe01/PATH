@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <h2>Reset Your Password</h2>
+    <input type="password" id="new-password" placeholder="Enter new password">
+    <button onclick="resetPassword()">Reset Password</button>
+    <p id="message"></p>
+
+    <script>
+        function resetPassword() {
+            const params = new URLSearchParams(window.location.search);
+            const token = params.get('token');
+            const password = document.getElementById("new-password").value;
+
+            if (!token || !password) {
+                document.getElementById("message").innerText = "Invalid request.";
+                return;
+            }
+
+            netlifyIdentity
+                .recover(token, password)
+                .then(() => {
+                    document.getElementById("message").innerText = "Password reset successful! You can now log in.";
+                })
+                .catch(error => {
+                    document.getElementById("message").innerText = "Error resetting password: " + error.message;
+                });
+        }
+    </script>
+</body>
+</html>
