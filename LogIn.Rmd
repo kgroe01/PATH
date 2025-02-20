@@ -76,52 +76,32 @@ output:
 <button id="logout" style="display:none;">Log Out</button>
 <p id="user-info"></p>
 
-
+<script src="https://cdn.auth0.com/js/auth0-spa-js/1.20/auth0-spa-js.production.js"></script>
 <script>
     let auth0 = null;
 
     async function configureAuth() {
         auth0 = await createAuth0Client({
-            domain: "dev-0xxzru015pu8i5d0.us.auth0.com",
-            client_id: "GWN2JjxHHqlCB1m23kCWTOUsFYcAqjdo"
+            domain: "dev-Oxxzru015pui85d0.us.auth0.com",
+            client_id: "GWN2JjxHHq1CB1m23kCWTOUsFYcAqjdo",
+            redirect_uri: window.location.origin + "/Login" // Fix for callback URL mismatch
         });
 
-        // Check if the user is logged in
+        // Check if user is already authenticated
         const isAuthenticated = await auth0.isAuthenticated();
-        
+
         if (isAuthenticated) {
             const user = await auth0.getUser();
-            document.getElementById("user-info").innerText = "Welcome, " + user.email;
-            document.getElementById("login").style.display = "none";
-            document.getElementById("logout").style.display = "block";
+            updateUI(user);
         }
     }
 
     async function login() {
         await auth0.loginWithPopup();
         const user = await auth0.getUser();
-        document.getElementById("user-info").innerText = "Welcome, " + user.email;
-        document.getElementById("login").style.display = "none";
-        document.getElementById("logout").style.display = "block";
-    }
-
-    async function logout() {
-        await auth0.logout({
-            returnTo: window.location.origin
-        });
-    }
-
-    document.getElementById("login").onclick = login;
-    document.getElementById("logout").onclick = logout;
-
-    window.onload = configureAuth;
-</script>
-
-<script>
-    async function login() {
-        await auth0.loginWithPopup();
-        const user = await auth0.getUser();
-
+        updateUI(user);
+        
+        // Redirect user to their specific page
         const userPages = {
             "user1@example.com": "user1.html",
             "user2@example.com": "user2.html",
@@ -132,6 +112,25 @@ output:
         const redirectPage = userPages[user.email] || userPages["default"];
         window.location.href = redirectPage;
     }
+
+    async function logout() {
+        await auth0.logout({ returnTo: window.location.origin });
+        document.getElementById("user-info").innerText = "";
+        document.getElementById("login").style.display = "block";
+        document.getElementById("logout").style.display = "none";
+    }
+
+    function updateUI(user) {
+        document.getElementById("user-info").innerText = "Welcome, " + user.email;
+        document.getElementById("login").style.display = "none";
+        document.getElementById("logout").style.display = "block";
+    }
+
+    document.getElementById("login").onclick = login;
+    document.getElementById("logout").onclick = logout;
+
+    window.onload = configureAuth;
 </script>
+
 
 
