@@ -183,7 +183,7 @@ Log Out
         auth0 = await createAuth0Client({
             domain: "dev-0xxzru015pu8i5d0.us.auth0.com",
             client_id: "GWN2JjxHHqlCB1m23kCWTOUsFYcAqjdo",
-            redirect_uri: window.location.origin + "/Login" // Fix for callback URL mismatch
+            redirect_uri: "https://pathttt2.netlify.app/callback" // Fix for callback URL mismatch
         });
 
         // Check if user is already authenticated
@@ -202,7 +202,7 @@ Log Out
         
         // Redirect user to their specific page
         const userPages = {
-            "kgroe@iastate.edu": "Modules.html",
+            "kategroe@gmail.com": "Modules.html",
             "user2@example.com": "user2.html",
             "admin@example.com": "admin.html",
             "default": "default.html"
