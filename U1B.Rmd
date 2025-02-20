@@ -1,5 +1,5 @@
 ---
-title: "Unit 1 base"
+title: "Unit 1"
 author: "Katelyn Groe"
 date: "2025-01-21"
 output:
@@ -34,6 +34,8 @@ output:
 - [Activity 1.1.1 key](TR\U1\1 Types of Machinery\Tillage\Lesson1.1.1\Activity 1.1.1 key.docx)
 
 
+
+<p style="margin-bottom: 20px;">
 
 <button onclick="logout()">Log Out</button>
 
