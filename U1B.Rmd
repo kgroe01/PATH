@@ -30,6 +30,9 @@ output:
 ### Module 1: Agricultural Machinery 
 #### Lesson 1 Tillage 
 - [Slides 1.1.1 Conventional Tillage](TR\U1\1 Types of Machinery\Tillage\Lesson1.1.1\lesson 1.1.1.pptx)
+- [Activity 1.1.1](TR\U1\1 Types of Machinery\Tillage\Lesson1.1.1\Activity 1.1.1.docx)
+- [Activity 1.1.1 key](TR\U1\1 Types of Machinery\Tillage\Lesson1.1.1\Activity 1.1.1 key.docx)
+
 
 
 <button onclick="logout()">Log Out</button>
