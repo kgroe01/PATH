@@ -17,16 +17,17 @@ output:
 <nav>
   <a href="index.html">Home</a>
   <a href="contact.html">Contact</a>
+  <button onclick="logout()">Log Out</button>
 </nav>
 
 
 
 <p style="margin-bottom: 20px;">
 
-This is Kate's Page!! Welcome Kate
+This is Kate's Page!! Welcome Kate! 
 
 ## Units -  
-- [Unit 1 - Crop and Soil Management](Module1.html)
+- [Unit 1 - Crop and Soil Management](U1B.html)
 - [Unit 2 - GPS guidence](Module2.html)
 - [Unit 3 - Remote Sensing](Module3.html)
 - [Unit 4 - Automation](Module1.html) 

@@ -1,0 +1,45 @@
+---
+title: "Unit 1 base"
+author: "Katelyn Groe"
+date: "2025-01-21"
+output:
+  html_document:
+    css: style.css
+    theme: null
+    toc: false
+    includes:
+      in_header: Friv.html
+
+---
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="contact.html">Contact</a>
+  <button onclick="logout()">Log Out</button>
+</nav>
+
+
+
+<p style="margin-bottom: 20px;">
+
+
+## Modules - 
+
+### Module 1: Agricultural Machinery 
+#### Lesson 1 Tillage 
+- [Slides 1.1.1 Conventional Tillage](TR\U1\1 Types of Machinery\Tillage\Lesson1.1.1 - Conventional Tillage)
+
+
+<button onclick="logout()">Log Out</button>
+
+<script>
+    function logout() {
+        netlifyIdentity.logout();
+    }
+
+    netlifyIdentity.on("logout", () => {
+        window.location.href = "index.html"; // Redirect to home after logout
+    });
+</script>
