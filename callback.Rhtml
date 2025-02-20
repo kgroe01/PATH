@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Login...</title>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.20/auth0-spa-js.production.js"></script>
+</head>
+<body>
+    <p>Redirecting...</p>
+    <script>
+        async function handleAuthCallback() {
+            const auth0 = await createAuth0Client({
+                domain: "dev-Oxxzru015pui85d0.us.auth0.com",
+                client_id: "GWN2JjxHHq1CB1m23kCWTOUsFYcAqjdo"
+            });
+
+            // Process login callback
+            await auth0.handleRedirectCallback();
+            
+            // Redirect user to homepage or dashboard
+            window.location.href = "/";
+        }
+
+        handleAuthCallback();
+    </script>
+</body>
+</html>
