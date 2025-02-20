@@ -21,8 +21,6 @@ output:
 
 # Log in Page
 
-[Unit 1 - Crop and Soil Management](Modules.html)
-
 
 
 <script>
@@ -54,7 +52,7 @@ output:
         const userPages = {
             "kgroe@iastate.edu": "Modules.html",
             "aalthaus@iastate.edu": "rhuffman.html",
-            "admin@example.com": "admin.html",
+            "rhuffman@iastate.edu": "rhuffman.html",
             "default": "default.html" // Redirect for unknown users
         };
 
