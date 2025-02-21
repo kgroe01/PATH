@@ -17,7 +17,6 @@ output:
 <nav>
   <a href="index.html">Home</a>
   <a href="contact.html">Contact</a>
-  <button onclick="logout()">Log Out</button>
 </nav>
 
 
@@ -33,22 +32,57 @@ This is Kate's Page!! Welcome Kate!
 - [Unit 4 - Automation](Module1.html) 
 
 
-<button onclick="logout()">Log Out</button>
+<button id="login">Log In</button>
+<button id="logout" style="display:none;">Log Out</button>
+<p id="user-info"></p>
+
+
+
 
 <script>
-    function logout() {
-        netlifyIdentity.logout();
+    let auth0 = null;
+
+    async function configureAuth() {
+        auth0 = await createAuth0Client({
+            domain: "dev-Oxxzru015pui85d0.us.auth0.com",
+            client_id: "GWN2JjxHHq1CB1m23kCWTOUsFYcAqjdo",
+            redirect_uri: "https://pathttt2.netlify.app/callback" // Ensure this matches Auth0 settings
+        });
+
+        const isAuthenticated = await auth0.isAuthenticated();
+
+        if (isAuthenticated) {
+            const user = await auth0.getUser();
+            updateUI(user);
+        }
     }
 
-    netlifyIdentity.on("logout", () => {
-        window.location.href = "index.html"; // Redirect to home after logout
-    });
+    async function login() {
+        await auth0.loginWithPopup();
+        const user = await auth0.getUser();
+        updateUI(user);
+    }
+
+    async function logout() {
+        await auth0.logout({
+            returnTo: "https://pathttt2.netlify.app" // Redirect after logout
+        });
+        document.getElementById("user-info").innerText = "";
+        document.getElementById("login").style.display = "block";
+        document.getElementById("logout").style.display = "none";
+    }
+
+    function updateUI(user) {
+        document.getElementById("user-info").innerText = "Welcome, " + user.email;
+        document.getElementById("login").style.display = "none";
+        document.getElementById("logout").style.display = "block";
+    }
+
+    document.getElementById("login").onclick = login;
+    document.getElementById("logout").onclick = logout;
+
+    window.onload = configureAuth;
 </script>
-
-
-
-
-
 
 
 
