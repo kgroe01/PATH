@@ -12,7 +12,11 @@ output:
 
 ---
 
+<!-- Add the Auth0 SPA script BEFORE your own scripts -->
+<script src="https://cdn.auth0.com/js/auth0-spa-js/1.19/auth0-spa-js.production.js"></script>
+
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 
 <nav>
   <a href="index.html">Home</a>
