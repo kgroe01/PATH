@@ -17,7 +17,8 @@ output:
 <nav>
   <a href="index.html">Home</a>
   <a href="contact.html">Contact</a>
-  <button id="logout">Log Out</button>
+  <!-- Replaced the button with an anchor tag -->
+  <a href="#" id="logout">Log Out</a>
 </nav>
 
 <p style="margin-bottom: 20px;">
@@ -62,7 +63,11 @@ output:
         document.getElementById("user-info").innerText = "Welcome, " + user.email;
     }
 
-    document.getElementById("logout").onclick = logout;
+    // Attach the logout event to the link
+    document.getElementById("logout").addEventListener("click", function(e) {
+        e.preventDefault();  // Prevents navigation to '#' 
+        logout();
+    });
 
     window.onload = configureAuth;
 </script>
