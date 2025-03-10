@@ -106,6 +106,7 @@ output:
             "kategroe@gmail.com": "Modules.html",
             "rhuffman@iastate.edu": "Modules.html",
             "admin@example.com": "admin.html",
+            "fakemail@gmail.com": "Modules.html", 
             "default": "default.html"
         };
 
