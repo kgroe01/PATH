@@ -26,7 +26,7 @@ output:
 </nav>
 
 <p style="margin-bottom: 20px;">
-  This is Kate's Page!! Welcome Kate
+
 </p>
 
 <ul>
@@ -44,7 +44,6 @@ output:
     async function configureAuth() {
         auth0 = await createAuth0Client({
             domain: "dev-0xxzru015pu8i5d0.us.auth0.com",
-            client_id: "GWN2JjxHHq1CB1m23kCWTOUsFYcAqjdo",
             redirect_uri: "https://pathttt2.netlify.app/callback" // Ensure this matches Auth0 settings
         });
 
