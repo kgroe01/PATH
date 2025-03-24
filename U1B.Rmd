@@ -37,23 +37,22 @@ output:
   }
 </style>
 
-## Modules -
 
 
+# Modules - 
 
-## Modules - 
-
-### Module 1: Agricultural Machinery 
-#### Lesson 1 Conventional Tillage 
+## Module 1: Agricultural Machinery 
+### Lesson 1 Conventional Tillage 
 - [Slides 1.1.1 Conventional Tillage](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.1 - Conventional Tillage\lesson 1.1.1.pptx)
 - [Activity 1.1.1](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.1 - Conventional Tillage\Activity 1.1.1.docx)
 - [Activity 1.1.1 key](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.1 - Conventional Tillage\Activity 1.1.1 key.docx)
 
-#### Lesson 2 Conservational Tillage 
+### Lesson 2 Conservational Tillage 
 - [Slides 1.1.2 Conservational Tillage](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Conservational Tillage 1.1.2.pptx)
 - [Activity 1.1.2](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.2.docx)
 - [Activity 1.1.2 key](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.2.docx)
 
+### Conventional vs Conservational Tillage Debate
 - [Activity 1.1.3](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.3.docx)
 - [Activity 1.1.3 key](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.2.docx)
 
