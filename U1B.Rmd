@@ -71,7 +71,7 @@ output:
 - [Activity 1.1.1 key](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.1 - Conventional Tillage\Activity 1.1.1 key.docx)
 
 ### Lesson 4 Harvesting Equipment 
-- [Slides 1.1.2 Harvesting Equipment](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Conservational Tillage 1.1.2.pptx)
+- [Slides 1.1.2 Harvesting Equipment](TR\Unit1\1 Types of Machinery\3 Harvesting Equipment\Harvesting Equipment.pptx)
 - [Activity 1.1.2](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.2.docx)
 - [Activity 1.1.2 key](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.2.docx)
 
