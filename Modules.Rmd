@@ -9,25 +9,21 @@ output:
     toc: false
     includes:
       in_header: Friv.html
-
 ---
 
-<!-- Add the Auth0 SPA script BEFORE your own scripts -->
+<!-- Auth0 SPA SDK -->
 <script src="https://cdn.auth0.com/js/auth0-spa-js/1.19/auth0-spa-js.production.js"></script>
 
+<!-- Optional Netlify Identity script (if you're still using it elsewhere) -->
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
 
 <nav>
   <a href="index.html">Home</a>
   <a href="contact.html">Contact</a>
-  <!-- Replaced the button with an anchor tag -->
   <a href="#" id="logout">Log Out</a>
 </nav>
 
-<p style="margin-bottom: 20px;">
-
-</p>
+<p style="margin-bottom: 20px;"></p>
 
 <ul>
   <li><a href="U1B.html">Unit 1 - Crop and Soil Management</a></li>
@@ -44,6 +40,7 @@ output:
     async function configureAuth() {
         auth0 = await createAuth0Client({
             domain: "dev-0xxzru015pu8i5d0.us.auth0.com",
+            client_id: "GWN2JjxHHq1CB1m23kCWTOUsFYcAqjdo",
             redirect_uri: "https://pathttt2.netlify.app/callback"
         });
 
@@ -57,12 +54,15 @@ output:
 
     async function logout() {
         const baseUrl = window.location.origin + "/index.html";
-        
+
         await auth0.logout({
             logoutParams: {
                 returnTo: baseUrl
             }
         });
+
+        // Manual redirect to avoid Auth0's default "OK" page
+        window.location.href = baseUrl;
     }
 
     function updateUI(user) {
@@ -76,4 +76,3 @@ output:
 
     window.onload = configureAuth;
 </script>
-
