@@ -168,7 +168,7 @@ and limitations under the License.
     }
 
     async function logout() {
-        const baseUrl = window.location.origin.endsWith("/") ? window.location.origin : window.location.origin + "/";
+        const baseUrl = window.location.origin + "/index.html";
         
         await auth0.logout({
             logoutParams: {
