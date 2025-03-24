@@ -25,22 +25,6 @@ output:
 </nav>
 
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const logoutLink = document.getElementById("logout");
-
-        logoutLink.addEventListener("click", function(e) {
-            e.preventDefault(); // Prevent the default anchor behavior
-            netlifyIdentity.logout();
-        });
-
-        netlifyIdentity.on("logout", () => {
-            window.location.href = "index.html"; // Redirect to home after logout
-        });
-    });
-</script>
-
-
 
 <p style="margin-bottom: 20px;"></p>
 
@@ -76,6 +60,55 @@ output:
 - [Activity 1.1.3](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.3.docx)
 - [Activity 1.1.3 key](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.2.docx)
 
+### Lesson 3 Seed Planting Equipment 
+- [Slides 1.1.4 Conventional Tillage](TR\Unit1\1 Types of Machinery\2 Planters\lesson 1.1.1.pptx)
+- [Activity 1.1.1](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.1 - Conventional Tillage\Activity 1.1.1.docx)
+- [Activity 1.1.1 key](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.1 - Conventional Tillage\Activity 1.1.1 key.docx)
+
+### Lesson 4 Harvesting Equipment 
+- [Slides 1.1.2 Conservational Tillage](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Conservational Tillage 1.1.2.pptx)
+- [Activity 1.1.2](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.2.docx)
+- [Activity 1.1.2 key](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.2.docx)
+
+### Conventional vs Conservational Tillage Debate
+- [Activity 1.1.3](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.3.docx)
+- [Activity 1.1.3 key](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.2.docx)
+
+
+<script>
+    let auth0 = null;
+
+    async function configureAuth() {
+        auth0 = await createAuth0Client({
+            domain: "dev-0xxzru015pu8i5d0.us.auth0.com",
+            client_id: "GWN2JjxHHq1CB1m23kCWTOUsFYcAqjdo",
+            redirect_uri: window.location.origin
+        });
+
+        const isAuthenticated = await auth0.isAuthenticated();
+
+        if (isAuthenticated) {
+            const user = await auth0.getUser();
+            updateUI(user);
+        } 
+    }
+
+    function updateUI(user) {
+        document.getElementById("user-info").innerText = "Welcome, " + user.email;
+        document.getElementById("logout").style.display = "inline";
+    }
+
+    document.getElementById("logout").addEventListener("click", function(e) {
+        e.preventDefault();
+        auth0.logout({
+            logoutParams: {
+                returnTo: window.location.origin
+            }
+        });
+    });
+
+    window.onload = configureAuth;
+</script>
 
 
 
