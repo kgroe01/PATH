@@ -20,6 +20,7 @@ output:
 <nav>
   <a href="index.html">Home</a>
   <a href="contact.html">Contact</a>
+  <a href="Modules.html">Units</a>
   <!-- Replaced the button with an anchor tag -->
   <a href="#" id="logout">Log Out</a>
 </nav>
@@ -78,7 +79,7 @@ output:
     async function configureAuth() {
         auth0 = await createAuth0Client({
             domain: "dev-0xxzru015pu8i5d0.us.auth0.com",
-            redirect_uri: window.location.origin
+            redirect_uri: "https://pathttt2.netlify.app/callback"
         });
 
         const isAuthenticated = await auth0.isAuthenticated();
@@ -86,21 +87,26 @@ output:
         if (isAuthenticated) {
             const user = await auth0.getUser();
             updateUI(user);
-        } 
+        }
+    }
+
+    async function logout() {
+        const baseUrl = window.location.origin.endsWith("/") ? window.location.origin : window.location.origin + "/";
+        
+        await auth0.logout({
+            logoutParams: {
+                returnTo: baseUrl
+            }
+        });
     }
 
     function updateUI(user) {
         document.getElementById("user-info").innerText = "Welcome, " + user.email;
-        document.getElementById("logout").style.display = "inline";
     }
 
     document.getElementById("logout").addEventListener("click", function(e) {
         e.preventDefault();
-        auth0.logout({
-            logoutParams: {
-                returnTo: window.location.origin
-            }
-        });
+        logout();
     });
 
     window.onload = configureAuth;
