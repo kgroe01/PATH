@@ -30,6 +30,10 @@ output:
 <p style="margin-bottom: 20px;"></p>
 
 <style>
+  h2 {
+    margin-top: 50px; /* Add extra space above module headers */
+    margin-bottom: 20px;
+  }
   h3, h4 {
     margin-top: 20px;
     margin-bottom: 10px;
@@ -59,18 +63,29 @@ output:
 
 ### Conventional vs Conservational Tillage Debate
 - [Activity 1.1.3](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.3.docx)
-- [Activity 1.1.3 key](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.2.docx)
+- No key, most questions have multiple possible answers
 
 ### Lesson 3 Seed Planting Equipment 
-- [Slides 1.1.4 Conventional Tillage](TR\Unit1\1 Types of Machinery\2 Planters\lesson 1.1.1.pptx)
+- [Slides 1.1.4 Seed Planting Equipment](TR\Unit1\1 Types of Machinery\2 Planters\lesson 1.1.1.pptx)
 - [Activity 1.1.1](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.1 - Conventional Tillage\Activity 1.1.1.docx)
 - [Activity 1.1.1 key](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.1 - Conventional Tillage\Activity 1.1.1 key.docx)
 
 ### Lesson 4 Harvesting Equipment 
-- [Slides 1.1.2 Conservational Tillage](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Conservational Tillage 1.1.2.pptx)
+- [Slides 1.1.2 Harvesting Equipment](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Conservational Tillage 1.1.2.pptx)
 - [Activity 1.1.2](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.2.docx)
 - [Activity 1.1.2 key](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.2.docx)
 
+
+## Module 2: Soil Management 
+### Lesson 1 Soil Sampling  
+- [Slides 1.2.1 Soil Sampling](TR\Unit1\2 Soil Management\1 Soil Sampling\Lesson 1.2.1 collecting soil samples.pptx)
+- [Activity 1.2.1](TR\Unit1\2 Soil Management\1 Soil Sampling\Soil Sampling Methods.docx)
+- [Activity 1.2.1 key](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.1 - Conventional Tillage\Activity 1.1.1 key.docx)
+
+### Lesson 2 Fertilizer Recomendations   
+- [Slides 1.2.2 Fertilizer Recomendations](TR\Unit1\2 Soil Management\2 Fertilizer recomendations\Lesson 1.2.2 Fertilizer recomendations.pptx)
+- [Activity 1.2.2](TR\Unit1\2 Soil Management\2 Fertilizer recomendations\Fertilizer Prescriptions Presentation Notes.docx)
+- [Activity 1.2.2 key](TR\Unit1\2 Soil Management\2 Fertilizer recomendations\Fertilizer Prescriptions Presentation Notes Answer Key.docx)
 
 
 <script>
