@@ -75,6 +75,14 @@ output:
 - [Activity 1.1.2](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.2.docx)
 - [Activity 1.1.2 key](TR\Unit1\1 Types of Machinery\1 Tillage\Lesson1.1.2 - Conservational Tillage\Activity 1.1.2.docx)
 
+### Module 1 Summary Activity - Farm Machinery Selection
+- [Reading - Farm Machinery Selection](TR\Unit1\1 Types of Machinery\4 Farm Machinery Selection\1 Farm Machinery Selection Reading\Farm Machinery Selection.pdf)
+- [Reading Worksheet - Farm Machinery Selection](TR\Unit1\1 Types of Machinery\4 Farm Machinery Selection\1 Farm Machinery Selection Reading\Farm Machinery Selection Reading.docx)
+- [Reading Worksheet Key - Farm Machinery Selection](TR\Unit1\1 Types of Machinery\4 Farm Machinery Selection\1 Farm Machinery Selection Reading\Farm Machinery Selection Reading Answer Key.docx)
+
+### Bonus Activity - Farm Machinery Management Game
+- [Teachers set up and gameplay quide](TR\Unit1\1 Types of Machinery\4 Farm Machinery Selection\2 Farm Machinery Management game\Farm Machinery Management Game Teachers Guide.docx)
+- [Student worksheet](TR\Unit1\1 Types of Machinery\4 Farm Machinery Selection\2 Farm Machinery Management game\Student Worksheets.docx)
 
 ## Module 2: Soil Management 
 ### Lesson 1 Soil Sampling  
@@ -84,6 +92,7 @@ output:
 
 ### Lesson 2 Fertilizer Recomendations   
 - [Slides 1.2.2 Fertilizer Recomendations](TR\Unit1\2 Soil Management\2 Fertilizer recomendations\Lesson 1.2.2 Fertilizer recomendations.pptx)
+- [PM 1688 - Crop nutrient recommendations guide](TR\Unit1\2 Soil Management\2 Fertilizer recomendations\PM1688.pdf)
 - [Activity 1.2.2](TR\Unit1\2 Soil Management\2 Fertilizer recomendations\Fertilizer Prescriptions Presentation Notes.docx)
 - [Activity 1.2.2 key](TR\Unit1\2 Soil Management\2 Fertilizer recomendations\Fertilizer Prescriptions Presentation Notes Answer Key.docx)
 
